@@ -1,0 +1,12 @@
+# Persistent Volume
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-volume-claim
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 50Mi # defined storage for the volume
+  storageClassName: manual

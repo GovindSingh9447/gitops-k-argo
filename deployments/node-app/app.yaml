@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: node-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/TryToLearnProgramming/gitops
+    path: deployments/node-app
+    targetRevision: k-argo
+    directory:
+      recurse: false
+      jsonnet: {}
+  destination:
+    namespace: node-app
+    server: 'https://kubernetes.default.svc'
+    # name: cluster_name
+  syncPolicy:
+    automated:
+      prune: true
+      allowEmpty: true
+    syncOptions:
+      - PruneLast=true
+      - CreateNamespace=true

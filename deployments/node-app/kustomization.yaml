@@ -1,0 +1,18 @@
+namespace: node-app
+# commonLabels:
+#   app: node-app
+resources:
+  - ../../base/apps/be
+  - ../../base/apps/fe
+  - ../../base/apps/mongo
+  - be-ingress.yaml
+  - fe-ingress.yaml
+  - be-cm.yaml
+patchesStrategicMerge:
+  - be-deploy.yaml
+  - fe-deploy.yaml
+images:
+  - name: sami203/e-commerce-front-end
+    newTag: 4e818ff6cf396353e3257114ad1bd7cd0cd96565
+  - name: sami203/e-commerce-back-end
+    newTag: 53fa7760c55a503a1d7932cff8047a593bc5da04
