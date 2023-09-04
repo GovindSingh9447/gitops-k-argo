@@ -8,5 +8,5 @@ spec:
   - ReadWriteMany
   resources:
     requests:
-      storage: 50Mi # defined storage for the volume
+      storage: 50Mi # defined storage for the volume size
   storageClassName: manual
